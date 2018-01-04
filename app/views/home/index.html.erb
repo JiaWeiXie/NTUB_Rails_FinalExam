@@ -1,0 +1,64 @@
+<!-- bloc-1 -->
+<div class="bloc l-bloc bgc-white bloc-fill-screen" id="bloc-1">
+    <div class="container fill-bloc-top-edge">
+        <nav class="navbar row">
+            <div class="navbar-header">
+                <%= link_to  "Company", root_path, class: "navbar-brand", data: { turbolinks: false }%>
+                <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-1">
+                <ul class="site-navigation nav navbar-nav pull-right">
+                    <li>
+                        <%= link_to  "Home", root_path, class: "navbar-brand", data: { turbolinks: false }%>
+                    </li>
+                    <li>
+                        <a href="upload.html">upload</a>
+                    </li>
+                    <li>
+                        <a href="gallery.html">gallery</a>
+                    </li>
+                    <li>
+                        <a href="login.html">login</a>
+                    </li>
+                    <li>
+                        <a href="register.html">register</a>
+                    </li>
+                    <li>
+                        <a href="profile.html">profile</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center hero-bloc-text">
+                    It's all about the big hero strapline.
+                </h1>
+                <h3 class="text-center mg-lg hero-bloc-text-sub">
+                    But don't forget about your jazzy tag line.
+                </h3>
+                <div class="text-center">
+                    <a href="/" class="btn-wire btn btn-xl">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container fill-bloc-bottom-edge">
+        <div class="row">
+            <div class="col-sm-12">
+                <a id="scroll-hero" class="blocs-hero-btn-dwn" href="/">
+                    <span class="fa fa-chevron-down"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- bloc-1 END -->

@@ -1,0 +1,42 @@
+<div class="container fill-bloc-top-edge">
+    <nav class="navbar row">
+        <div class="navbar-header">
+            <%= link_to  "Company", root_path, class: "navbar-brand", data: { turbolinks: false }%>
+                <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-1">
+            <ul class="site-navigation nav navbar-nav pull-right">
+                <li>
+                    <%= link_to  "Home", root_path, class: "navbar-brand", data: { turbolinks: false }%>
+                </li>
+                <% if current_user %>
+                    <li>
+                        <a href="gallery.html">gallery</a>
+                    </li>   
+                    <li>
+                        <a href="upload.html">upload</a>
+                    </li>
+                    <li>
+                        <%= link_to "profile", edit_user_registration_path %>
+                    </li>
+                    <li>
+                        <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+                    </li>
+                    <% else %>
+                        <li>
+                            <%= link_to "login", new_user_session_path %>
+                        </li>
+                        <li>
+                            <%= link_to "Sign up", new_registration_path(:user) %>
+                        </li>
+                <% end %>
+
+            </ul>
+        </div>
+    </nav>
+</div>

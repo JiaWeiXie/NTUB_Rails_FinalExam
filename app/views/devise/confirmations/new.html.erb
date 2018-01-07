@@ -1,0 +1,21 @@
+<!-- bloc-10 -->
+<div class="bloc l-bloc bgc-white" id="bloc-10">
+    <%= render "layouts/nav" %>
+    <div class="container bloc-lg">
+          <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <h1>Resend confirmation instructions</h1>
+              <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+              <%= devise_error_messages! %>
+              <div class="form-group">
+                  <%= f.label :email, "Email address", for:"register_email" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class:"form-control", id:"register_email", aria_describedby:"emailHelp", placeholder:"Email" %>
+              </div>
+              <%= f.submit "Resend confirmation instructions", class:"btn btn-primary" %>
+              <% end %>
+                <%= render "devise/shared/links" %>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!-- bloc-10 END -->

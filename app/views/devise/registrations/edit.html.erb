@@ -1,0 +1,44 @@
+
+<!-- bloc-7 -->
+<div class="bloc l-bloc bgc-white" id="bloc-7">
+    <%= render "layouts/nav" %>
+    <div class="container bloc-lg">
+          <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+              <h1>Edit <%= resource_name.to_s.humanize %></h1>
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+                <div class="form-group">
+                  <%= f.label "Email address", for:"register_email" %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"register_email", aria_describedby:"emailHelp", placeholder:"Email" %>
+                </div>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <small id="emailHelp" class="form-text text-muted">Currently waiting confirmation for: <%= resource.unconfirmed_email %></small>
+                <% end %>
+                <div class="form-group">
+                    <%= f.label :password %><i>(leave blank if you don't want to change it)</i>
+                    <%= f.password_field :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, class:"form-control", placeholder:"Password" %>
+                    <% if @minimum_password_length %>
+                    <em><%= @minimum_password_length %> characters minimum</em>
+                    <% end %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :password_confirmation %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password confirmation" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :current_password %>
+                  <%= f.password_field :current_password, hint: "we need your current password to confirm your changes", class:"form-control", placeholder:"Current password" %>
+                </div>
+                <%= f.submit "Update", class:"btn btn-primary" %>
+                <% end %>
+                <h3>Cancel my account</h3>
+
+                <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+                <%= link_to "Back", :back, data: { turbolinks: false } %>
+            </div>
+          </div>
+    </div>
+  </div>
+  <!-- bloc-7 END -->

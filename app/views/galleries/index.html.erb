@@ -1,6 +1,6 @@
 <!-- bloc-3 -->
 <div class="bloc l-bloc bgc-white" id="bloc-3">
-        <%= render "layouts/nav" %>
+    <%= render "layouts/nav" %>
         <div class="container bloc-lg">
             <div class="row">
                 <div class="col-sm-12">
@@ -12,20 +12,46 @@
                     </p>
                 </div>
             </div>
+            <%= @galleries.each_slice 4 do |a, b, c, d| %>
             <div class="row voffset">
+                <% if a %>
+                    <div class="col-sm-3">
+                        <a href="#" data-lightbox="<%= a.photo.url %>" data-caption="<%= a.title %>" data-gallery-id="gallery-1"><img src="<%= a.photo.medium.url %>" class="img-responsive" /></a>
+                    </div>
+                <% else %>
+                    <div class="col-sm-3">
+                    <a href="#" data-lightbox="<%= image_path 'placeholder-image.png' %>" data-caption="Image description" data-gallery-id="gallery-1"><img src="<%= image_path 'placeholder-image-sq.png' %>" class="img-responsive" /></a>
+                    </div>
+                <% end %>
+                <% if b %>
+                    <div class="col-sm-3">
+                        <a href="#" data-lightbox="<%= b.photo.url %>" data-caption="<%= b.title %>" data-gallery-id="gallery-1"><img src="<%= b.photo.medium.url %>" class="img-responsive" /></a>
+                    </div>
+                <% elsif a %>
+                    <div class="col-sm-3">
+                    <a href="#" data-lightbox="<%= image_path 'placeholder-image.png' %>" data-caption="Image description" data-gallery-id="gallery-1"><img src="<%= image_path 'placeholder-image-sq.png' %>" class="img-responsive" /></a>
+                    </div>
+                <% end %>
+                <% if c %>
+                    <div class="col-sm-3">
+                        <a href="#" data-lightbox="<%= c.photo.url %>" data-caption="<%= c.title %>" data-gallery-id="gallery-1"><img src="<%= c.photo.medium.url %>" class="img-responsive" /></a>
+                    </div>
+                <% elsif b %>
+                    <div class="col-sm-3">
+                    <a href="#" data-lightbox="<%= image_path 'placeholder-image.png' %>" data-caption="Image description" data-gallery-id="gallery-1"><img src="<%= image_path 'placeholder-image-sq.png' %>" class="img-responsive" /></a>
+                    </div>
+                <% end %>
+                <% if d %>
+                    <div class="col-sm-3">
+                        <a href="#" data-lightbox="<%= d.photo.url %>" data-caption="<%= d.title %>" data-gallery-id="gallery-1"><img src="<%= d.photo.medium.url %>" class="img-responsive" /></a>
+                    </div>
+                <% elsif c %>
                 <div class="col-sm-3">
-                    <a href="#" data-lightbox="img/placeholder-image.png" data-caption="Image description" data-gallery-id="gallery-1"><img src="img/placeholder-image-sq.png" class="img-responsive" /></a>
+                    <a href="#" data-lightbox="<%= image_path 'placeholder-image.png' %>" data-caption="Image description" data-gallery-id="gallery-1"><img src="<%= image_path 'placeholder-image-sq.png' %>" class="img-responsive" /></a>
                 </div>
-                <div class="col-sm-3">
-                    <a href="#" data-lightbox="img/placeholder-image.png" data-caption="Image description" data-gallery-id="gallery-1"><img src="img/placeholder-image-sq.png" class="img-responsive" /></a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="#" data-lightbox="img/placeholder-image.png" data-caption="Image description" data-gallery-id="gallery-1"><img src="img/placeholder-image-sq.png" class="img-responsive" /></a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="#" data-lightbox="img/placeholder-image.png" data-caption="Image description" data-gallery-id="gallery-1"><img src="img/placeholder-image-sq.png" class="img-responsive" /></a>
-                </div>
+                <% end %>
             </div>
+            <% end  %>
         </div>
-    </div>
-    <!-- bloc-3 END -->
+</div>
+<!-- bloc-3 END -->

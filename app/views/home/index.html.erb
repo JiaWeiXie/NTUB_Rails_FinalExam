@@ -12,7 +12,7 @@
                 </h3>
                 <div class="text-center">
                     <% if current_user %>
-                        <%= link_to  "Gallery", root_path, class: "btn-wire btn btn-xl", data: { turbolinks: false }%>
+                        <%= link_to  "Gallery", user_galleries_path(current_user), class: "btn-wire btn btn-xl", data: { turbolinks: false }%>
                     <% else %>
                         <%= link_to "Sign up", new_registration_path(:user), class: "btn-wire btn btn-xl" %>
                     <% end %>

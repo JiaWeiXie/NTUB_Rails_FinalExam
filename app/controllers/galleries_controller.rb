@@ -2,26 +2,23 @@ class GalleriesController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      
+      @galleries = Gallery.all
     end
     
     def new
       @gallery = Gallery.new
-      @photo = @gallery.photos.new
     end
     
     def create
-      params = gallery_params
-      @gallery = Gallery.new(params)
+      @gallery = Gallery.new(gallery_params)
       @gallery.user = current_user
-      @gallery.photos = @photo
-      p @gallery
+
       if @gallery.save
         # 成功
-        
+        redirect_to :root
       else
         # 失敗
-        render :new, notice: "失敗"
+        render :new, notice: "ERROR: 上傳失敗"
       end
     end
     
@@ -43,6 +40,6 @@ class GalleriesController < ApplicationController
 
     private
     def gallery_params
-        params.require(:gallery).permit(:title, :description, photos_attributes: [:image])
+        params.require(:gallery).permit(:title, :description, :photo)
     end
 end

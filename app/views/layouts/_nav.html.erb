@@ -16,20 +16,20 @@
                 </li>
                 <% if current_user %>
                     <li>
-                        <a href="gallery.html">gallery</a>
+                        <%= link_to  "Gallery", user_galleries_path(current_user), data: { turbolinks: false } %>
                     </li>   
                     <li>
-                        <%= link_to  "Upload", new_gallery_path %>
+                        <%= link_to  "Upload", new_user_gallery_path(current_user) %>
                     </li>
                     <li>
-                        <%= link_to "profile", edit_user_registration_path %>
+                        <%= link_to "Profile", edit_user_registration_path %>
                     </li>
                     <li>
                         <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
                     </li>
                     <% else %>
                         <li>
-                            <%= link_to "login", new_user_session_path %>
+                            <%= link_to "Login", new_user_session_path %>
                         </li>
                         <li>
                             <%= link_to "Sign up", new_registration_path(:user) %>

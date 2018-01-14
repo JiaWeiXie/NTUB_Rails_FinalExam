@@ -1,13 +1,14 @@
 <!-- bloc-2 -->
 <div class="bloc l-bloc bgc-white" id="bloc-2">
+    <%= render "layouts/nav" %>
     <div class="container bloc-lg">
+        <% if notice %>
+        <%= "<div class='alert alert-danger' role:'alert'>#{notice}</div>".html_safe %>
+        <% end %>
+        
         <div class="row">
             <div class="col-sm-12">
-                <%= form_for @photo, local: true, html: { multipart: true } do |f| %>
-                    <div class="form-group">
-                        <%= f.label :image, "Upload Image" %>
-                        <%= f.file_field :image, class:"form-control-file", id:"upload_image" %>
-                    </div
+                <%= form_for @gallery do |f| %>
                 <%= f.label :title, "Title", for:"upload_title" %>
                 <p class="mg-lg">
                     <%= f.text_field :title, class:"form-control", id:"upload_title", placeholder:"Title" %>
@@ -16,6 +17,12 @@
                 <p class="mg-lg">
                     <%= f.text_area :description, class:"form-control", rows:"5", id:"Descripe", placeholder:"Descripe" %>
                 </p>
+                <div class="form-group">
+                    <%= form_for :photos, html: { multipart: true } do |c| %>
+                        <%= c.label :image, "Upload Image" %>
+                        <%= c.file_field :image, class:"form-control-file", id:"upload_image" %>
+                    <% end %>
+                </div>
                 <%= f.submit "Create", class:"btn btn-d btn-lg" %>
                 <% end %>
             </div>

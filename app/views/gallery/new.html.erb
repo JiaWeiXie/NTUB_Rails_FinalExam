@@ -1,0 +1,25 @@
+<!-- bloc-2 -->
+<div class="bloc l-bloc bgc-white" id="bloc-2">
+    <div class="container bloc-lg">
+        <div class="row">
+            <div class="col-sm-12">
+                <%= form_for @photo, local: true, html: { multipart: true } do |f| %>
+                    <div class="form-group">
+                        <%= f.label :image, "Upload Image" %>
+                        <%= f.file_field :image, class:"form-control-file", id:"upload_image" %>
+                    </div
+                <%= f.label :title, "Title", for:"upload_title" %>
+                <p class="mg-lg">
+                    <%= f.text_field :title, class:"form-control", id:"upload_title", placeholder:"Title" %>
+                </p>
+                <%= f.label :description, "Descripe", for:"Descripe" %>
+                <p class="mg-lg">
+                    <%= f.text_area :description, class:"form-control", rows:"5", id:"Descripe", placeholder:"Descripe" %>
+                </p>
+                <%= f.submit "Create", class:"btn btn-d btn-lg" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- bloc-2 END -->

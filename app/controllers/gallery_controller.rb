@@ -6,11 +6,19 @@ class GalleryController < ApplicationController
     end
     
     def new
-      
+      @photo = Photo.new
+    #   @image = @photo.image.new
     end
     
     def create
-      
+      @photo = Photo.new(gallery_params)
+
+      if @photo.save
+        # 成功
+      else
+        # 失敗
+        render :new
+      end
     end
     
     def edit
@@ -27,5 +35,10 @@ class GalleryController < ApplicationController
     
     def destroy
       
+    end
+
+    private
+    def gallery_params
+        params.require(:photo).permit(:title, :description, photos_attributes: [:image])
     end
 end

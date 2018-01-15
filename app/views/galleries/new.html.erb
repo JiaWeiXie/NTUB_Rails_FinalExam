@@ -2,7 +2,7 @@
 <div class="bloc l-bloc bgc-white" id="bloc-2">
     <%= render "layouts/nav" %>
     <div class="container bloc-lg">
-        <% if notice && notice.to_s.include?("ERROR") %>
+        <% if notice.include?("ERROR") %>
         <%= "<div class='alert alert-danger' role:'alert'>#{notice}</div>".html_safe %>
         <% end %>
         
@@ -19,8 +19,11 @@
                 </p>
                 <div class="form-group">
                     <%= f.label :photo, "Upload Image" %>
-                    <%= f.file_field :photo, class:"form-control-file", id:"upload_image" %>
+                    <%= f.file_field :photo, class:"form-control-file", onchange: "readURL(this);", id:"upload_image" %>
+                    <br>
+                    <%= image_tag  "placeholder-image.png", id: "preview", class:"img-responsive center-block" %>
                 </div>
+			
                 <%= f.submit "Create", class:"btn btn-d btn-lg" %>
                 <% end %>
             </div>

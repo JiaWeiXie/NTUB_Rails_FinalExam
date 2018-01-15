@@ -13,12 +13,12 @@ class GalleriesController < ApplicationController
       @gallery = Gallery.new(gallery_params)
       @gallery.user = current_user
 
-      if @gallery.save
+      if @gallery.save && @gallery.valid?
         # 成功
-        redirect_to :root
+        redirect_to user_galleries_path(current_user)
       else
         # 失敗
-        render :new, notice: "ERROR: 上傳失敗"
+        redirect_back fallback_location: root_path, notice: "ERROR: 上傳失敗"
       end
     end
     

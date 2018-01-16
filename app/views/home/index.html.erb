@@ -37,3 +37,9 @@
         <%= render "galleries/gallery_view", galleries: @news, title: "News" %>
     </div>
 </div>
+
+<script>
+    document.addEventListener("turbolinks:render", function() {
+        location.reload();
+        })
+</script>

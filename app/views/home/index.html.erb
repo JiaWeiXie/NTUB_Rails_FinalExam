@@ -19,14 +19,21 @@
                 </div>
             </div>
         </div>
+
     </div>
+    
     <div class="container fill-bloc-bottom-edge">
         <div class="row">
             <div class="col-sm-12">
-                <%= link_to  "<span class='fa fa-chevron-down'></span>".html_safe , root_path, class: "blocs-hero-btn-dwn", data: { turbolinks: false }%>
+            <a id="scroll-hero" class="blocs-hero-btn-dwn"><img src="https://png.icons8.com/ios/50/666666/circled-chevron-down-filled.png"></a>
             </div>
         </div>
     </div>
 </div>
 
 <!-- bloc-1 END -->
+<div class="bloc l-bloc bgc-white">
+    <div class="container bloc-lg" id="gallery_view">
+        <%= render "galleries/gallery_view", galleries: @news, title: "News" %>
+    </div>
+</div>

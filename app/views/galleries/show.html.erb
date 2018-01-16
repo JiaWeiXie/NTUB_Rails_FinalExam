@@ -1,0 +1,24 @@
+<!-- bloc-11 -->
+<div class="bloc l-bloc bgc-white" id="bloc-11">
+    <%= render "layouts/nav" %>
+    <div class="container bloc-lg">
+        <div class="row">
+                <div class="col-sm-6">
+                    <%= image_tag  @gallery.photo ? @gallery.photo : "placeholder-image.png", class:"img-responsive" %>
+                </div>
+                <div class="col-sm-6">
+                    <h2 class="mg-sm">
+                        <%= @gallery.title %>
+                    </h2>
+                    <p style="font-size: 12px">
+                        <%= "#{@gallery.user.nickname}, #{@gallery.created_at.strftime("%Y-%m-%d")}" %>
+                    </p>
+                    <p class="mg-lg" style="font-size: 18px">
+                        <%= @gallery.description %>
+                    </p>
+                    <%= link_to  "Gallery", user_galleries_path(@gallery.user.id), class:"btn btn-d" %>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- bloc-11 END -->

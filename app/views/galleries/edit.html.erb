@@ -1,0 +1,11 @@
+<!-- bloc-10 -->
+<div class="bloc l-bloc bgc-white" id="bloc-10">
+        <%= render "layouts/nav" %>
+        <div class="container bloc-lg">
+            <% if notice && notice.include?("ERROR") %>
+            <%= "<div class='alert alert-danger' role:'alert'>#{notice}</div>".html_safe %>
+            <% end %>
+            <%= render "form", gallery: @gallery, page_title: "Edit", submit_title: "Update" %>
+        </div>
+</div>
+<!-- bloc-10 END -->

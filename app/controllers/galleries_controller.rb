@@ -43,6 +43,7 @@ class GalleriesController < ApplicationController
     
     def destroy
       if @gallery.destroy
+        @gallery.remove_photo!
         redirect_to user_galleries_path(current_user), notice: "Delete success!"
       else
         redirect_back fallback_location: root_path, notice: "ERROR: Delete fail!"

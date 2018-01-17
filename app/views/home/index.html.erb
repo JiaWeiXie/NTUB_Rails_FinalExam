@@ -14,7 +14,7 @@
                     <% if current_user %>
                         <%= link_to  "藝廊", user_galleries_path(current_user), class: "btn-wire btn btn-xl", data: { turbolinks: false }%>
                     <% else %>
-                        <%= link_to "登入", new_registration_path(:user), class: "btn-wire btn btn-xl" %>
+                        <%= link_to "註冊", new_registration_path(:user), class: "btn-wire btn btn-xl" %>
                     <% end %>
                 </div>
             </div>

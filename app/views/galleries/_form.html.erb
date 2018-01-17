@@ -4,22 +4,22 @@
 <%= form_for gallery, url: user_galleries_path do |f| %>
     <div class="row">
         <div class="col-sm-6">
-            <%= f.label :title, "Title", for:"upload_title" %>
+            <%= f.label :title, "標題", for:"upload_title" %>
             <p class="mg-lg">
                 <%= f.text_field :title, class:"form-control", id:"upload_title", placeholder:"Title" %>
             </p>
-            <%= f.label :description, "Descripe", for:"Descripe" %>
+            <%= f.label :description, "描述", for:"Descripe" %>
             <p class="mg-lg">
                 <%= f.text_area :description, class:"form-control", rows:"5", id:"Descripe", placeholder:"Descripe" %>
             </p>
             <div class="form-group">
-                <%= f.label :photo, "Photo" %>
+                <%= f.label :photo, "相片" %>
                 <%= f.file_field :photo, class:"form-control-file", onchange: "readURL(this);", id:"upload_image" %>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="Preview">Preview</label>
+                <label for="Preview">預覽</label>
                 <p class="mg-lg">
                     <% if gallery.photo.url %>
                     <%= image_tag gallery.photo, class:"img-responsive center-block", id:"preview" %>
@@ -35,7 +35,7 @@
             <div class="text-right marginButton">
                 <%= f.submit submit_title, class:"btn btn-d btn-lg" %>
                 <% if gallery.photo.url %>
-                <%= link_to "Delete", user_gallery_path(id: gallery.id), method: "Delete", class:"btn btn-danger btn-d btn-lg", data: { confirm: "Are you sure?" } %>
+                <%= link_to "刪除", user_gallery_path(id: gallery.id), method: "Delete", class:"btn btn-danger btn-d btn-lg", data: { confirm: "Are you sure?" } %>
                 <% end %>
             </div>
         </div>

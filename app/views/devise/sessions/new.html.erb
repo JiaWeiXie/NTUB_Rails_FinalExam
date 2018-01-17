@@ -5,23 +5,23 @@
 <div class="container bloc-lg">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <h1>Login</h1>
+      <h1>登入</h1>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
-          <%= f.label "Email address", for:"exampleInputEmail1" %>
+          <%= f.label "Email", for:"exampleInputEmail1" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id:"exampleInputEmail1", aria_describedby:"emailHelp", placeholder:"Enter email"  %>
         </div>
         <div class="form-group">
-            <%= f.label "Password", for:"exampleInputPassword1" %>
+            <%= f.label "密碼", for:"exampleInputPassword1" %>
             <%= f.password_field :password, autocomplete: "off",class:"form-control", id:"exampleInputPassword1", placeholder:"Password" %>
         </div>
         <% if devise_mapping.rememberable? -%>
         <div class="form-group">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label :remember_me, "記住" %>
         </div>
         <% end -%>
-        <%= f.submit "Login", class:"btn btn-primary" %>
+        <%= f.submit "登入", class:"btn btn-primary" %>
         <%= render "devise/shared/links" %>
       <% end %>
       

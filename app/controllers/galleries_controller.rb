@@ -14,13 +14,13 @@ class GalleriesController < ApplicationController
       @gallery = Gallery.new(gallery_params)
       @gallery.user = current_user
 
-      if @gallery.save && @gallery.valid?
+      if @gallery.valid? && @gallery.save
         redirect_to user_galleries_path(current_user)
       else
         if @gallery.photo.url == nil
-          redirect_back fallback_location: root_path, notice: "ERROR: Photo can't be blank"
+          redirect_back fallback_location: root_path, notice: "ERROR: 無選取相片"
         else
-          redirect_back fallback_location: root_path, notice: "ERROR: Upload fail!"
+          redirect_back fallback_location: root_path, notice: "ERROR: 上傳失敗!"
         end
       end
     end
@@ -31,9 +31,9 @@ class GalleriesController < ApplicationController
 
     def update
       if @gallery.update(product_params)
-        redirect_to user_galleries_path(current_user), notice: "Update success!"
+        redirect_to user_galleries_path(current_user), notice: "更新成功!"
       else
-        redirect_back fallback_location: root_path, notice: "ERROR: Update fail!"
+        redirect_back fallback_location: root_path, notice: "ERROR: 更新失敗!"
       end
     end
     
@@ -44,9 +44,9 @@ class GalleriesController < ApplicationController
     def destroy
       if @gallery.destroy
         @gallery.remove_photo!
-        redirect_to user_galleries_path(current_user), notice: "Delete success!"
+        redirect_to user_galleries_path(current_user), notice: "刪除成功!"
       else
-        redirect_back fallback_location: root_path, notice: "ERROR: Delete fail!"
+        redirect_back fallback_location: root_path, notice: "ERROR: 刪除失敗!"
       end
     end
 

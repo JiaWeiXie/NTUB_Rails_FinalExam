@@ -24,6 +24,7 @@
         <%= "<div class='alert alert-danger alert-dismissible' role:'alert'>#{notice}</div>".html_safe %>
       <% elsif notice %>
         <%= "<div class='alert alert-info alert-dismissible' role:'alert'>#{notice}</div>".html_safe %>
+      <% elsif alert %>
         <%= "<div class='alert alert-warning alert-dismissible' role:'alert'>#{alert}</div>".html_safe %>
       <% end %>
     </div>

@@ -3,7 +3,7 @@ class GalleriesController < ApplicationController
     before_action :find_gallery, only: [:edit, :update, :destroy, :show]
 
     def index
-      @galleries = Gallery.find_by(user_id: current_user)
+      @galleries = Gallery.where(user_id: current_user)
     end
     
     def new

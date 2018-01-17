@@ -15,7 +15,9 @@
                     <p class="mg-lg" style="font-size: 18px">
                         <%= @gallery.description %>
                     </p>
-                    <%= link_to  "想看更多？", user_galleries_path(@gallery.user.id), class:"btn btn-d" %>
+                    <p class="mg-sm">
+                        <%= link_to  "想看更多？", user_galleries_path(@gallery.user.id), class:"btn btn-d" %>
+                    </p>
                 </div>
         </div>
     </div>

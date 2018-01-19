@@ -13,9 +13,9 @@
                 <small id="emailHelp" class="form-text text-muted"></small>
               </div>
               <div class="form-group">
-                <%= f.label :passwordㄝ, "密碼" , for:"register_password"%>
+                <%= f.label :password, "密碼" , for:"register_password"%>
                 <% if @minimum_password_length %>
-                <em>（（最少 <%= @minimum_password_length %> 字元)</em>
+                <em>（最少 <%= @minimum_password_length %> 字元)</em>
                 <% end %>
                 <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"register_password", placeholder:"Password" %>
               </div>

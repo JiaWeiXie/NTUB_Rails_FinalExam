@@ -4,7 +4,7 @@
             <% if notice && notice.include?("ERROR") %>
             <%= "<div class='alert alert-danger' role:'alert'>#{notice}</div>".html_safe %>
             <% end %>
-            <%= render "form", gallery: @gallery, page_title: "Edit", submit_title: "更新" %>
+            <%= render "form", gallery: @gallery, page_title: "Edit", submit_title: "更新", gpath: user_gallery_path %>
         </div>
 </div>
 <!-- bloc-10 END -->

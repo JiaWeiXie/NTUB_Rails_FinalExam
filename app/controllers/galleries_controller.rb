@@ -30,7 +30,7 @@ class GalleriesController < ApplicationController
     end
 
     def update
-      if @gallery.update(product_params)
+      if @gallery.update(gallery_params)
         redirect_to user_galleries_path(current_user), notice: "更新成功!"
       else
         redirect_back fallback_location: root_path, notice: "ERROR: 更新失敗!"
